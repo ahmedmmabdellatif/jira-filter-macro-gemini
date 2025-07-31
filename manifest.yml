@@ -1,1 +1,21 @@
-
+# manifest.yml
+app:
+  name: Agile Copilot (Jira Filter)
+  id: 'ari:cloud:ecosystem::app/<YOUR_APP_ID>'
+permissions:
+  scopes:
+    - 'read:jira-work'
+modules:
+  function:
+    - key: jql-fetcher
+      handler: index.jqlFetcher
+  confluence:macro:
+    - key: agile-copilot-jira-filter-macro
+      title: Agile Copilot (Jira Filter)
+      description: A custom macro to display Jira issues from a JQL query.
+      resource: main
+      config:
+        resource: main
+resources:
+  - key: main
+    path: static/jira-filter/build
